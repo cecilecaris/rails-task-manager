@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @restaurant.save
+    @task.save
     # no need for app/views/tasks/create.html.erb
     redirect_to task_path(@task)
   end
@@ -29,6 +29,7 @@ class TasksController < ApplicationController
   end
   def destroy
     @task.destroy
+    redirect_to task_path(@task)
   end
 
   private
